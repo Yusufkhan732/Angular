@@ -1,8 +1,7 @@
-
 <div align="center" style="margin-top: 100px;" class="container">
 
     <h2>Login</h2>
-<span>{{form.inputError}}</span>
+    <span>{{form.inputError}}</span>
     <form (submit)="signIn()">
         <table>
             <tr>
@@ -16,7 +15,12 @@
             </tr>
             <tr>
                 <th></th>
-                <td><input type="submit" value="signin"></td>
+                <td><input type="submit" value="signIn">
+                    &nbsp;
+                    <button>
+                        <a href="signup">signUp</a>
+                    </button>
+                </td>
             </tr>
         </table>
     </form>

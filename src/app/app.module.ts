@@ -8,20 +8,30 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './login/sign-up.component';
 import { FormsModule } from '@angular/forms';
+import { HttpServiceService } from './http-service.service';
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    NavbarComponent,
+    FooterComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpServiceService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
