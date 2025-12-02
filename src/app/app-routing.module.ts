@@ -21,6 +21,7 @@ component:WelcomeComponent
 {
 path:'login',
 component:LoginComponent
+ 
 },
 {
 path:'signup',

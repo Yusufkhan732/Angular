@@ -1,46 +1,66 @@
 <div align="center" style="margin-top: 100px;" class="container">
 
-    <h2 style="color: rgb(233, 52, 52);">User Registration</h2>
+    <h2>User Registration</h2>
+
+    <h2>{{form.message}}</h2>
 
     <form (submit)="signUp()">
         <table>
             <tr>
-                <span style="color: blue;">
-                    <th>First Name</th>
-                </span>
+                <th>First Name</th>
                 <td><input type="text" [(ngModel)]="form.data.firstName" name="firstName"
                         placeholder="enter first name">
                 </td>
+                <td *ngIf="form.inputerror.firstName !=null">
+                    <font color="red">
+
+                        {{form.inputerror.firstName}}
+                    </font>
+
+                <td>
             </tr>
 
             <tr>
-                <span style="color: rgb(255, 0, 98);">
-                    <th>Last Name</th>
-                </span>
+                <th>Last Name</th>
                 <td><input type="text" [(ngModel)]="form.data.lastName" name="lastName" placeholder="enter last name">
                 </td>
-            </tr>
-
-            <tr>
-                <span style="color: rgb(190, 188, 17);">
-                    <th>LoginId</th>
-                </span>
-                <td><input type="text" [(ngModel)]="form.data.loginId" name="loginId" placeholder="enter your email"></td>
-            </tr>
-
-            <tr>
-                <span style="color: rgb(0, 255, 157);">
-                    <th>Password</th>
-                </span>
-                <td><input type="text" [(ngModel)]="form.data.password" name="password" placeholder="enter first name">
+                <td *ngIf="form.inputerror.lastName != null">
+                    <font color="red">
+                        {{form.inputerror.lastName}}
+                    </font>
                 </td>
             </tr>
 
             <tr>
-                <span style="color: rgb(255, 0, 106);">
-                    <th>Dob</th>
-                </span>
+                <th>LoginId</th>
+                <td><input type="text" [(ngModel)]="form.data.loginId" name="loginId" placeholder="enter your email">
+                </td>
+                <td *ngIf="form.inputerror.loginId != null">
+                    <font color="red">
+                        {{form.inputerror.loginId}}
+                    </font>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Password</th>
+                <td><input type="text" [(ngModel)]="form.data.password" name="password" placeholder="enter first name">
+                </td>
+                <td *ngIf="form.inputerror.password != null">
+                    <font color="red">
+                        {{form.inputerror.password}}
+                    </font>
+                </td>
+            </tr>
+
+            <tr>
+                <th>DOB</th>
                 <td><input type="date" [(ngModel)]="form.data.dob" name="dob"></td>
+                <td *ngIf="form.inputerror.dob != null">
+                    <font color="red">
+                        {{form.inputerror.dob}}
+                    </font>
+                </td>
             </tr>
 
             <tr>
@@ -49,11 +69,4 @@
             </tr>
         </table>
     </form>
-
-    {{form.data.firstName}}
-    {{form.data.lastName}}
-    {{form.data.login}}
-    {{form.data.password}}
-    {{form.data.dob}}
-
 </div>
