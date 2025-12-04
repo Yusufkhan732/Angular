@@ -12,6 +12,8 @@ import { HttpServiceService } from './http-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { UserComponent } from './user/user.component';
+import { UserlistComponent } from './user/userlist.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     SignUpComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    UserComponent,
+    UserlistComponent
 
   ],
   imports: [

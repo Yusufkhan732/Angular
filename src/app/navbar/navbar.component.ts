@@ -30,7 +30,7 @@ export class NavbarComponent {
       return false;
     }
   }
-  logOut() {
+  logout() {
 
     var self = this
 

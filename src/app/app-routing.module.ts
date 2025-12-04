@@ -3,30 +3,42 @@ import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './login/sign-up.component';
+import { UserComponent } from './user/user.component';
+import { UserlistComponent } from './user/userlist.component';
 
 const routes: Routes = [
 
 
   {
-    path:'',
-    pathMatch:'full',
-    redirectTo:'welcome'
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'welcome'
   },
 
-{
-path:'welcome',
-component:WelcomeComponent
-},
+  {
+    path: 'welcome',
+    component: WelcomeComponent
+  },
 
-{
-path:'login',
-component:LoginComponent
- 
-},
-{
-path:'signup',
-component:SignUpComponent
-},
+  {
+    path: 'login',
+    component: LoginComponent
+
+  },
+  {
+    path: 'signup',
+    component: SignUpComponent
+  },
+  {
+    path: 'user',
+    component: UserComponent
+  },
+
+  {
+    path: 'userList',
+    component: UserlistComponent
+  },
+
 ];
 
 @NgModule({
