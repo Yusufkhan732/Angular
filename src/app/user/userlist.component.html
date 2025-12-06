@@ -2,21 +2,30 @@
     <h1 align="center" style="margin-bottom: -15; color: navy;">User
         List</h1>
 
-    <!-- <table>
+    <table align="center">
         <tr>
             <th>First Name</th>
             <td><input type="text" [(ngModel)]="form.searchParams.firstName" name="firstName"
                     placeholder="enter first name">
+            </td>&nbsp;
+
+            &nbsp; <th>Role</th>
+            <td><select name="id" [(ngModel)]="form.searchParams.roleId" style="width: 90%;">
+                    <option [ngValue]="" value="undefined">{{'--------Select Role---------' }}</option>
+                    <option *ngFor="let obj of form.preload" [value]="obj.key">{{obj.value}}</option>
+                </select>
             </td>
             <td>
-                <button (click)="search()">search</button>
+                <button class="btn btn-dark" (click)="search()">search</button>
             </td>
         </tr>
-    </table> -->
+
+    </table>
 
     <br>
     <table border="1" style="width: 100%;">
-        <tr align="center" style="background-color: lightblue;">
+        <tr align="center" style="background-color: rgb(81, 144, 165);">
+            <th width="1%">Select</th>
             <th width="5%">S.No</th>
             <th width="1%">Image</th>
             <th width="12%">FirstName</th>
@@ -25,7 +34,8 @@
             <th width="13%">DOB</th>
             <th width="13%">Role</th>
         </tr>
-        <tr *ngFor="let m of form.list; let i = index" style="background-color: lightgrey;">
+        <tr *ngFor="let m of form.list; let i = index" style="background-color: rgb(168, 157, 157);">
+            <td align="center"><input type="checkbox" (click)="onClickCheckBox(m.id)"></td>
             <td style="text-align: center;">{{(form.pageNo*5)+i+ 1}}</td>
             <td> <img src="http://localhost:8080/User/profilePic/{{m.id}}" height="80px" width="80px"></td>
             <td style="text-align: center;">{{m.firstName}}</td>
@@ -36,10 +46,14 @@
         </tr>
     </table>
     <br>
-    <!-- <table width="100%">
+    <table width="100%">
         <tr>
-            <td><button [disabled]="form.pageNo == 0" (click)="previous()">previous</button></td>
-            <td align="right"><button [disabled]="form.list.length < 5" (click)="next()">next</button></td>
+
+            <td><button class="btn btn-warning" [disabled]="form.pageNo == 0" (click)="previous()">previous</button>
+            </td>
+            <td> <button class="btn btn-danger" (click)="delete()">Delete</button></td>
+            <td align="right"><button class="btn btn-warning" [disabled]="form.list.length < 5"
+                    (click)="next()">next</button></td>
         </tr>
-    </table> -->
+    </table>
 </div>
