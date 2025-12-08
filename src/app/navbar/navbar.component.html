@@ -1,29 +1,32 @@
-<table>
-    <tr style="width: 100%;">
-        <td style="width: 98%;">
+<style>
+    .navbar {
+        background-image: linear-gradient(to bottom right, rgba(89, 45, 114, 0.74), rgb(180, 65, 65));
+    }
+</style>
 
-            <div *ngIf="isLogin()">
-                <h3><b>Hi,{{form.data.firstName}} ({{form.data.roleName}})</b></h3>
-                <a href="User"><b>Add User</b></a> |
-                <a href="userList"><b>User List</b></a> |
-                <a (click)="logout()">
-                    <font color="blue"><b>Logout</b></font>
-                </a>
-            </div>
+<div class="navbar">
 
-            <div *ngIf="!isLogin()">
-                <h3>Hi,Guest</h3>
-                <a href="welcome"><b>Welcome</b></a> |
-                <a href="login"><b>Login</b></a>
+    <!-- LEFT SECTION -->
+    <div *ngIf="isLogin()">
+        <h3 style="display:inline-block;">Hi, {{form.data.firstName}} ({{form.data.roleName}})</h3>
+        &nbsp; | &nbsp;
+        <a href="User">Add User</a> |
+        <a href="userList">User List</a> |
+        <a (click)="logout()">Logout</a>
+    </div>
 
-            </div>
-        </td>
+    <div *ngIf="!isLogin()">
+        <h3 style="display:inline-block;">Hi, Guest</h3>
+        &nbsp; | &nbsp;
+        <a href="/welcome">Welcome</a> |
+        <a href="/login">Login</a>
+    </div>
 
-        <td style="width: 5%;">
-            <div *ngIf="isLogin()">
-                <img src="http://localhost:8080/User/profilePic/{{form.data.id}}" height="90px" width="90px">
-            </div>
-        </td>
+    <!-- RIGHT SIDE IMAGE -->
+    <div *ngIf="isLogin()">
+        <img src="http://localhost:8080/User/profilePic/{{form.data.id}}" height="60" width="60">
+    </div>
 
-    </tr>
-</table>
+</div>
+
+<hr style="border-color:black;">

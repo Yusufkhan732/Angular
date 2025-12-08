@@ -16,7 +16,7 @@ export class NavbarComponent {
 
 
   }
-  constructor(public router: Router, public httpService: HttpServiceService) {}
+  constructor(public router: Router, public httpService: HttpServiceService) { }
 
   isLogin() {
 
@@ -31,22 +31,14 @@ export class NavbarComponent {
     }
   }
   logout() {
-
-    var self = this
-
+    var self = this;
     this.httpService.get('http://localhost:8080/Auth/logout', function (res: any) {
-
-      localStorage.clear
-
-      console.log("success:===>", res.success)
-      console.log("Logout message:==>", res.message)
-
+      localStorage.clear();
+      console.log("success ==> ", res.success);
+      console.log("Logout response: ", res.result.message);
       self.form.message = res.result.message;
-      self.router.navigateByUrl('login')
-
-    })
-
+      self.router.navigateByUrl('login');
+    });
   }
 
 }
-
