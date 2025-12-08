@@ -1,32 +1,56 @@
 <style>
-    .navbar {
-        background-image: linear-gradient(to bottom right, rgba(89, 45, 114, 0.74), rgb(180, 65, 65));
+    .e {
+        background: linear-gradient(135deg, #c4c7da, #999ca0);
     }
 </style>
 
-<div class="navbar">
 
-    <!-- LEFT SECTION -->
-    <div *ngIf="isLogin()">
-        <h3 style="display:inline-block;">Hi, {{form.data.firstName}} ({{form.data.roleName}})</h3>
-        &nbsp; | &nbsp;
-        <a href="User">Add User</a> |
-        <a href="userList">User List</a> |
-        <a (click)="logout()">Logout</a>
-    </div>
+<nav class="navbar navbar-expand-lg fixed-top e">
 
-    <div *ngIf="!isLogin()">
-        <h3 style="display:inline-block;">Hi, Guest</h3>
-        &nbsp; | &nbsp;
-        <a href="/welcome">Welcome</a> |
-        <a href="/login">Login</a>
-    </div>
+    <!-- LEFT LOGO -->
+    <a class="navbar-brand" href="#">
+        <img src="https://www.raystec.com/assets/img/rays/customLogoOuterglow.png" width="190" height="50">
+    </a>
 
-    <!-- RIGHT SIDE IMAGE -->
-    <div *ngIf="isLogin()">
-        <img src="http://localhost:8080/User/profilePic/{{form.data.id}}" height="60" width="60">
-    </div>
+    <!-- WELCOME (Always Visible) -->
+    <h3 class="ml-3" style="display:inline-block;">
+        Hi, {{ isLogin() ? form.data.firstName + ' (' + form.data.roleName + ')' : 'Guest' }}
+    </h3>
 
-</div>
+    <ul class="navbar-nav ml-auto">
 
-<hr style="border-color:black;">
+        <!-- SHOW WHEN USER NOT LOGIN -->
+        <li class="nav-item dropdown" *ngIf="!isLogin()" style="padding-right:40px;">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" style="color:white;">
+                Options
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="login"><i class="fa fa-sign-in-alt"></i> Login</a>
+                <a class="dropdown-item" href="signup"><i class="fa fa-registered"></i> User Registration</a>
+            </div>
+        </li>
+
+        <!-- SHOW WHEN USER IS LOGIN -->
+        <li class="nav-item dropdown" *ngIf="isLogin()">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" style="color:white;">
+                User
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="User"><i class="fa fa-user-circle"></i> Add User</a>
+                <a class="dropdown-item" href="userList"><i class="fa fa-user-friends"></i> User List</a>
+            </div>
+        </li>
+
+        <!-- LOGOUT BUTTON (only after login) -->
+        <li class="nav-item" *ngIf="isLogin()">
+            <a (click)="logout()" class="nav-link" style="cursor:pointer; color:white;">Logout</a>
+        </li>
+
+        <!-- PROFILE PIC (only after login) -->
+        <li class="nav-item" *ngIf="isLogin()">
+            <img src="http://localhost:8080/User/profilePic/{{form.data.id}}" height="60" width="60"
+                style="border-radius:50%; margin-left:10px;">
+        </li>
+
+    </ul>
+</nav>
