@@ -37,7 +37,14 @@ export class NavbarComponent {
       console.log("success ==> ", res.success);
       console.log("Logout response: ", res.result.message);
       self.form.message = res.result.message;
-      self.router.navigateByUrl('login');
+      self.router.navigate(['login'], {
+
+        queryParams: { Message: res.result.message }
+
+      });
+
+
+
     });
   }
 

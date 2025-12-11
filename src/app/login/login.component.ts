@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpServiceService } from '../http-service.service';
 
 @Component({
@@ -8,19 +8,30 @@ import { HttpServiceService } from '../http-service.service';
   styleUrls: ['./login.component.css']
 
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
 
   form: any = {
-
     data: {},
-    inputerror: {}
+    inputerror: {},
+    message: ''
   }
-  constructor(public router: Router, public httpService: HttpServiceService) {
+  constructor(public router: Router, public httpService: HttpServiceService, public route: ActivatedRoute) {
 
   }
   endpoint: string = 'http://localhost:8080/Auth/login'
 
+
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if (params['errorMessage'] || params['Message']) {
+        this.form.errorMessage = params['errorMessage'];
+        this.form.message = params['Message']
+
+      }
+    });
+  }
   signIn() {
 
 

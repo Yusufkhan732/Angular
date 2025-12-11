@@ -31,7 +31,6 @@ export class UserlistComponent implements OnInit {
     var self = this
     this.httpService.get('http://localhost:8080/User/preload', function (res: any) {
 
-      console.log('res==', res)
       self.form.preload = res.result.roleList
     })
   }
@@ -43,6 +42,7 @@ export class UserlistComponent implements OnInit {
     this.form.pageNo++;
     this.search();
   }
+
   onClickCheckBox(userId: any) {
     this.form.deleteParams = userId;
   }
@@ -53,7 +53,6 @@ export class UserlistComponent implements OnInit {
   search() {
     var self = this
     this.httpService.post('http://localhost:8080/User/search/' + this.form.pageNo, this.form.searchParams, function (res: any) {
-      console.log("res ==> ", res);
       self.form.list = res.result.data;
 
     })
@@ -63,6 +62,7 @@ export class UserlistComponent implements OnInit {
     this.httpService.get('http://localhost:8080/User/delete/' + this.form.deleteParams, function (res: any) {
       if (res.success && res.result.message) {
         self.form.message = res.result.message;
+        console.log('res==>', res)
       }
       if (!res.success && res.result.message) {
         self.form.errormessage = res.result.message;
