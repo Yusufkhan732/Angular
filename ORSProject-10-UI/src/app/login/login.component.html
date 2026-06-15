@@ -1,0 +1,86 @@
+<style>
+  .grad {
+    background-image: linear-gradient(to bottom right, rgb(32, 168, 168), rgb(219, 231, 237));
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-bottom: 20px;
+  }
+</style>
+
+<div class="row" style="padding-top:8%; padding-bottom:8%;
+background:url(assets/files/Login3.jpg) no-repeat center center;
+background-attachment:fixed;
+background-size:cover;
+height:100vh;">
+
+  <div class="col-sm-4"></div>
+
+  <div class="col-sm-4">
+
+    <div class="card shadow-lg grad">
+      <div class="card-body">
+
+        <form>
+
+          <div class="text-center">
+            <h1 class="text-primary">{{'Login'|translate}}</h1>
+          </div>
+          <div *ngIf="form.message && !form.error" class="alert alert-success alert-dismissible fade show">
+            <button type="button" class="close" (click)="form.message=null">&times;</button>
+            {{form.message}}
+          </div>
+
+          <div *ngIf="form.message && form.error" class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="close" (click)="form.message=null">&times;</button>
+            {{form.message}}
+          </div>
+          <!-- LoginId -->
+          <div class="pt-3">
+            <b>{{'UserForm.LoginId'|translate}}</b>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-envelope"></i>
+                </div>
+              </div>
+              <input type="text" name="loginId" [(ngModel)]="form.data.loginId" class="form-control"
+                placeholder="{{'UserForm.Placeholders.LoginId'|translate}}">
+            </div>
+            <span class="text-danger">{{form.inputerror.loginId}}</span>
+          </div>
+
+          <!-- Password -->
+          <div class="pt-3">
+            <b>{{'UserForm.Password'|translate}}</b>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-key"></i>
+                </div>
+              </div>
+              <input type="password" name="password" [(ngModel)]="form.data.password" class="form-control"
+                placeholder="{{'UserForm.Placeholders.Password'|translate}}">
+            </div>
+            <span class="text-danger">{{form.inputerror.password}}</span>
+          </div>
+
+          <!-- Buttons -->
+          <div class="text-center mt-4">
+            <button type="button" class="btn btn-success mr-3 px-4" (click)="signIn()">{{'Sign In'|translate}}</button>
+            <button type="button" class="btn btn-warning px-4"
+              (click)="signUp()">{{'Buttons.SignUp'|translate}}</button>
+
+          </div>
+          <!-- Forget Password -->
+          <div class="text-center mt-3">
+            <a [routerLink]="['/forgetPassword']" class="text-dark">
+              <b><u>"{{'Forget my password?' | translate}}"</u></b>
+            </a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,174 @@
+<br><br>
+<div style="
+background: url(assets/files/gettyimages-1132439283-640x640.jpg) no-repeat center center;
+background-attachment: fixed;
+background-size: cover;
+min-height:100vh;
+padding-top:80px;">
+
+  <div class="container">
+
+    <!-- SEARCH CARD -->
+
+    <div class="card shadow-lg">
+
+      <div class="card-header bg-primary text-white text-center">
+        <h2>Get Marksheet</h2>
+      </div>
+
+      <div class="card-body">
+
+        <form (ngSubmit)="go()" #rollForm="ngForm">
+
+          <div class="row justify-content-center">
+
+            <div class="col-md-4">
+
+              <input type="text" class="form-control" name="rollNo" [(ngModel)]="form.data.rollNo"
+                placeholder="Enter Roll Number" required>
+
+            </div>
+
+            <div class="col-md-3">
+
+              <button type="submit" class="btn btn-success mr-2">
+                Search
+              </button>
+
+              <button type="button" class="btn btn-secondary" (click)="reset()">
+                Reset
+              </button>
+
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <br>
+   <!-- Alert Messages -->
+      <div *ngIf="form.message && form.error === true" class="alert alert-danger alert-dismissible text-center mx-auto"
+        style="max-width: 600px; width: 80%; margin-bottom: 15px;">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{form.message}}
+      </div>
+
+      <div *ngIf="form.message && form.error === false"
+        class="alert alert-success alert-dismissible text-center mx-auto"
+        style="max-width: 600px; width: 80%; margin-bottom: 15px;">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{form.message}}
+      </div>
+
+    
+
+    <!-- MARKSHEET CARD -->
+
+    <div class="card shadow-lg mt-4" *ngIf="form.list && form.list.rollNo">
+
+      <div class="card-header bg-dark text-white text-center">
+        <h3>Student Marksheet</h3>
+      </div>
+
+      <div class="card-body">
+
+        <table class="table table-bordered table-hover text-center">
+
+          <tr class="table-info">
+            <th>Roll No</th>
+            <td>{{form.list.rollNo}}</td>
+            <th>Name</th>
+            <td>{{form.list.name}}</td>
+          </tr>
+
+          <tr class="table-secondary">
+            <th>Subject</th>
+            <th>Max Marks</th>
+            <th>Min Marks</th>
+            <th>Marks Obtained</th>
+          </tr>
+
+          <tr>
+            <td>Physics</td>
+            <td>100</td>
+            <td>35</td>
+            <td>
+              <span [ngStyle]="{'color': (form.list.physics >=35) ? 'green':'red'}">
+                {{form.list.physics}}
+              </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Chemistry</td>
+            <td>100</td>
+            <td>35</td>
+            <td>
+              <span [ngStyle]="{'color': (form.list.chemistry >=35) ? 'green':'red'}">
+                {{form.list.chemistry}}
+              </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Maths</td>
+            <td>100</td>
+            <td>35</td>
+            <td>
+              <span [ngStyle]="{'color': (form.list.maths >=35) ? 'green':'red'}">
+                {{form.list.maths}}
+              </span>
+            </td>
+          </tr>
+
+          <tr class="table-warning">
+            <th colspan="2">Total</th>
+            <td colspan="2">
+              {{form.list.maths+form.list.physics+form.list.chemistry}}
+            </td>
+          </tr>
+
+          <tr class="table-primary">
+            <th colspan="2">Percentage</th>
+            <td colspan="2">
+              {{((form.list.physics+form.list.maths+form.list.chemistry)*100)/300 | number:'1.2-2'}}%
+            </td>
+          </tr>
+
+          <tr class="table-success">
+            <th colspan="2">Result</th>
+
+            <td colspan="2"
+              *ngIf="((form.list.physics+form.list.maths+form.list.chemistry)*100)/300 >= 35; else failBlock">
+
+              <span class="text-success font-weight-bold">
+                PASS
+              </span>
+
+            </td>
+
+            <ng-template #failBlock>
+
+              <td colspan="2">
+                <span class="text-danger font-weight-bold">
+                  FAIL
+                </span>
+              </td>
+
+            </ng-template>
+
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+  <br><br>
+</div>

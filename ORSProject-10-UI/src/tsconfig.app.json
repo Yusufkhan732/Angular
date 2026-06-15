@@ -1,0 +1,16 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "types": [],
+    "skipLibCheck": true
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": false,
+    "fullTemplateTypeCheck": false
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

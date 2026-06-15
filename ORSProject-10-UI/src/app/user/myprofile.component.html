@@ -1,0 +1,187 @@
+<br><br>
+<div class="row" style="padding-top: 3%; padding-bottom:3%; 
+background: url(assets/files/edc.jpg) no-repeat center center;
+background-attachment: fixed;
+background-size: cover;width:auto; height: auto;">
+
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body shadow-lg">
+        <form name="myProfile">
+          <h2 align="center" class="text-primary font-weight-bold">My Profile</h2>
+
+          <div *ngIf="form.error" class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{form.message}}
+          </div>
+          <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{form.message}}
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>First Name</b></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i></div>
+                </div>
+                <input type="text" name="fn" [(ngModel)]="form.data.firstName" class="form-control"
+                  placeholder="Enter First Name">
+              </div>
+            </div>
+            <span class="alertRedColor">{{form.inputerror.firstName}}</span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Last Name</b></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i></div>
+                </div>
+                <input type="text" name="ln" [(ngModel)]="form.data.lastName" class="form-control"
+                  placeholder="Enter Last Name">
+              </div>
+            </div>
+            <span class="alertRedColor">{{form.inputerror.lastName}}</span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Login Id</b></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i></div>
+                </div>
+                <input type="text" name="loginId" [(ngModel)]="form.data.loginId" class="form-control"
+                  placeholder="Enter Login Id">
+              </div>
+            </div>
+            <span class="alertRedColor">{{form.inputerror.state}}</span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Password</b></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i></div>
+                </div>
+                <input type="password" name="pwd" [(ngModel)]="form.data.password" class="form-control"
+                  placeholder="Enter Password">
+              </div>
+            </div>
+            <span class="alertRedColor">{{form.inputerror.password}}</span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Mobile</b></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i></div>
+                </div>
+                <input type="text" name="phone" [(ngModel)]="form.data.phone" class="form-control"
+                  placeholder="Enter Mobile Number">
+              </div>
+            </div>
+            <span class="alertRedColor">{{form.inputerror.phone}}</span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Alternate Mobile</b></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i></div>
+                </div>
+                <input type="text" name="alternateMobile" [(ngModel)]="form.data.alternateMobile" class="form-control"
+                  placeholder="Enter Alternate Number">
+              </div>
+            </div>
+            <span class="alertRedColor">{{form.inputerror.alternateMobile}}</span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>DOB</b></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i></div>
+                </div>
+                <input type="date" name="dob" [value]="form.data.dob | date:'yyyy-MM-dd'" (input)="form.data.dob"
+                  class="form-control form-control-sm" required />
+              </div>
+            </div>
+            <span class="alertRedColor">{{form.inputerror.dob}}</span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Gender</b></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i></div>
+                </div>
+                <select class="form-control" name="gender" id="gender" [(ngModel)]="form.data.gender"
+                  style="cursor: pointer;">
+                  <option [ngValue]="" value="undefined">Please select</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Image</b></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i></div>
+                </div>
+                <input type="file" id="customFile" name="imageId" (change)="onFileSelect($event)" accept="image/*">
+                <span class="alertRedColor">{{form.inputerror.image}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Status</b></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i></div>
+                </div>
+                <select class="form-control" id="status" name="status" [(ngModel)]="form.data.status" readonly>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row pt-2 pl-2 pb-3">
+
+            <div class="col-md-3"></div>
+
+            <button (click)="myProfile()" class="btn btn-success mr-2">
+              Update
+            </button>
+            &nbsp;&nbsp;&nbsp;
+
+            <a class="btn btn-warning" [routerLink]="['/userList']">
+              List
+            </a>
+
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

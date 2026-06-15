@@ -1,0 +1,223 @@
+<br><br><br>
+
+<style>
+  .grad {
+    background-image: linear-gradient(to bottom right, rgb(32, 168, 168), rgb(219, 231, 237));
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-bottom: 25px;
+  }
+</style>
+
+<div class="row" style="padding-top:3%; padding-bottom:3%;
+background:url(assets/files/wall.jpg) no-repeat center center;
+background-attachment: fixed;
+background-size: cover;width:auto;height:auto;">
+
+  <div class="col-sm-4"></div>
+
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body shadow-lg grad">
+
+        <h2 *ngIf="!form.data.id" class="text-primary font-weight-bold text-center">
+          Add Student
+        </h2>
+
+        <h2 *ngIf="form.data.id>0" class="text-primary font-weight-bold text-center">
+          Update Student
+        </h2>
+
+        <div *ngIf="form.error && form.message != null" class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{form.message}}
+        </div>
+
+        <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{form.message}}
+        </div>
+
+        <!-- Enrollment No -->
+        <div style="padding-top:3%">
+          <span><b>Enrollment No</b></span>
+
+          <div class="col-sm-12">
+            <div class="input-group">
+
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-id-card"></i>
+                </div>
+              </div>
+
+              <input type="text" name="enrolNo" [(ngModel)]="form.data.enrolNo" class="form-control"
+                placeholder="Enter Enrollment Number">
+
+            </div>
+          </div>
+
+          <span class="alertRedColor">{{form.inputerror.enrolNo}}</span>
+        </div>
+
+        <!-- First Name -->
+        <div style="padding-top:3%">
+          <span><b>First Name</b></span>
+
+          <div class="col-sm-12">
+            <div class="input-group">
+
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-user"></i>
+                </div>
+              </div>
+
+              <input type="text" name="firstN" [(ngModel)]="form.data.firstName" class="form-control"
+                placeholder="Enter First Name">
+
+            </div>
+          </div>
+
+          <span class="alertRedColor">{{form.inputerror.firstName}}</span>
+        </div>
+
+        <!-- Last Name -->
+        <div style="padding-top:3%">
+          <span><b>Last Name</b></span>
+
+          <div class="col-sm-12">
+            <div class="input-group">
+
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-user-circle"></i>
+                </div>
+              </div>
+
+              <input type="text" name="lastN" [(ngModel)]="form.data.lastName" class="form-control"
+                placeholder="Enter Last Name">
+
+            </div>
+          </div>
+
+          <span class="alertRedColor">{{form.inputerror.lastName}}</span>
+        </div>
+
+        <!-- College -->
+        <div style="padding-top:3%">
+          <span><b>College</b></span>
+
+          <div class="col-sm-12">
+            <div class="input-group">
+
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-university"></i>
+                </div>
+              </div>
+
+              <select class="form-control" name="collegeId" [(ngModel)]="form.data.collegeId">
+
+                <option value="undefined">Select College</option>
+
+                <option *ngFor="let obj of form.preload.collegeList" [value]="obj.key">
+                  {{obj.value}}
+                </option>
+
+              </select>
+
+            </div>
+          </div>
+
+          <span class="alertRedColor">{{form.inputerror.collegeId}}</span>
+        </div>
+
+        <!-- Email -->
+        <div style="padding-top:3%">
+          <span><b>Email</b></span>
+
+          <div class="col-sm-12">
+            <div class="input-group">
+
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-envelope"></i>
+                </div>
+              </div>
+
+              <input type="text" name="email" [(ngModel)]="form.data.email" class="form-control"
+                placeholder="Enter Email Id">
+
+            </div>
+          </div>
+
+          <span class="alertRedColor">{{form.inputerror.email}}</span>
+        </div>
+
+         <!-- DOB -->
+          <div>
+            <span><b>DOB</b></span>
+
+            <div class="col-sm-12">
+              <div class="input-group">
+
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                  </div>
+
+                <input type="date" name="dob" [(ngModel)]="form.data.dob"  [ngModel]="form.data.dob | date:'yyyy-MM-dd'" class="form-control">
+
+              </div>
+            </div>
+
+            <span *ngIf="form.inputerror.dob" style="color:red;">DOB Required</span>
+          </div>
+
+        <!-- Mobile -->
+        <div style="padding-top:3%">
+          <span><b>Mobile No</b></span>
+
+          <div class="col-sm-12">
+            <div class="input-group">
+
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-phone"></i>
+                </div>
+              </div>
+
+              <input type="text" maxlength="10" name="phoneNo" [(ngModel)]="form.data.phoneNo" class="form-control"
+                placeholder="Enter Mobile Number">
+
+            </div>
+          </div>
+
+          <span class="alertRedColor">{{form.inputerror.phoneNo}}</span>
+        </div>
+
+        <!-- Buttons -->
+        <div class="row pt-2 pl-2 pb-3">
+
+          <div class="col-md-3"></div>
+
+          <button *ngIf="!form.data.id" (click)="submit()" class="btn btn-success mr-2">
+            Save
+          </button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button *ngIf="form.data.id>0" (click)="submit()" class="btn btn-success mr-2">
+            Update
+          </button>
+
+          <a class="btn btn-warning" [routerLink]="['/studentList']">
+            List
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,25 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+
+import { HttpServiceService } from '../http-service.service';
+
+import { BaseCtl } from '../base.component';
+import { ActivatedRoute } from '@angular/router';
+import { ServiceLocatorService } from '../service-locator.service';
+
+
+@Component({
+  selector: 'app-marksheet',
+  templateUrl: './marksheet.component.html',
+  styleUrls: ['./marksheet.component.css']
+})
+
+export class MarksheetComponent extends BaseCtl {
+
+
+  constructor(public locator: ServiceLocatorService, route: ActivatedRoute) {
+    super(locator.endpoints.MARKSHEET, locator, route);
+
+  }
+}

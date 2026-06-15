@@ -1,0 +1,70 @@
+<br><br>
+<style>
+  /* Background */
+  .merit-bg {
+    background-image: url('/assets/login2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding-top: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 50px;
+  }
+
+  /* Card */
+  .merit-card {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom right, white, #f8f9fa);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    padding: 70px;
+    margin: 90px;
+  }
+
+  /* Table header */
+  .table th {
+    background-color: #e1e6f1e3;
+  }
+
+  /* Top rank highlight */
+  .top-rank {
+    background-color: #d4edda !important;
+    font-weight: bold;
+  }
+
+  /* Buttons */
+  .merit-btns button {
+    min-width: 120px;
+  }
+</style>
+
+<div class="container-fluid merit-bg">
+  <div class="card merit-card">
+
+    <!-- Title -->
+    <h2 class="text-center text-dark mb-4">
+      <i class="fa fa-print text-primary mr-2" aria-hidden="true"></i>
+      Marksheet Merit List
+    </h2>
+
+    <!-- Buttons -->
+    <div class="text-center merit-btns mb-3">
+      <button class="btn btn-primary mx-2" (click)="forward('/jasper')">
+        Print
+      </button>
+      <button class="btn btn-secondary mx-2" (click)="forward('/marksheetList')">
+        Back
+      </button>
+    </div>
+
+    <!-- Table placeholder (optional) -->
+    <div class="table-responsive">
+      <!-- Your table can go here if needed -->
+    </div>
+
+  </div>
+</div>
