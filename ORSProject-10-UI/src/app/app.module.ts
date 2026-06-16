@@ -46,6 +46,8 @@ import { MarksheetMeritListComponent } from './marksheet/marksheet-merit-list.co
 import { JasperComponent } from './jasper/jasper.component';
 import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
 import { ForgetPasswordComponent } from './login/forget-password.component';
+import { CommandmodelComponent } from './commandmodel/commandmodel.component';
+import { CommandmodellistComponent } from './commandmodel/commandmodellist.component';
 
 
 
@@ -88,6 +90,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     
     MarksheetMeritListComponent,
     JasperComponent,
+    CommandmodelComponent,
+    CommandmodellistComponent,
 
 
   ],

@@ -31,6 +31,8 @@ import { MarksheetMeritListComponent } from './marksheet/marksheet-merit-list.co
 import { JasperComponent } from './jasper/jasper.component';
 import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
 import { ForgetPasswordComponent } from './login/forget-password.component';
+import { CommandmodelComponent } from './commandmodel/commandmodel.component';
+import { CommandmodellistComponent } from './commandmodel/commandmodellist.component';
 
 
 
@@ -175,9 +177,9 @@ const routes: Routes = [
     component: MarksheetMeritListComponent
   },
   {
-     path: 'getmarksheet',
-     component: GetmarksheetComponent
-   },
+    path: 'getmarksheet',
+    component: GetmarksheetComponent
+  },
 
   {
     path: 'timetable',
@@ -190,6 +192,20 @@ const routes: Routes = [
   {
     path: 'timetable/:id',
     component: TimetableComponent
+  },
+
+
+  {
+    path: 'CommandModel',
+    component: CommandmodelComponent
+  },
+  {
+    path: 'CommandModellist',
+    component: CommandmodellistComponent
+  },
+  {
+    path: 'CommandModel/:id',
+    component: CommandmodelComponent
   },
 
   {
