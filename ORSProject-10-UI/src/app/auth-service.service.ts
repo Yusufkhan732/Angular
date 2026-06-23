@@ -20,8 +20,8 @@ export class AuthServiceService implements HttpInterceptor {
 
       req = req.clone({
         setHeaders: {
-          "withCredntails" : "true",
-          "name" : "yusuf",
+          "withCredntails": "true",
+          "name": "yusuf",
           Authorization: this.token
         }
       });
@@ -31,7 +31,13 @@ export class AuthServiceService implements HttpInterceptor {
         if (error.status === 401) {
           localStorage.clear();
           this.router.navigate(['/login'], {
-            queryParams: { errorMessage: error.error},
+            queryParams: { errorMessage: error.error },
+          });
+        }
+
+        if (error.status === 0) {
+          this.router.navigate([this.router.url], {
+            queryParams: { errorMessage: 'server not rechable Please start Backend..!!' },
           });
         }
 
@@ -42,10 +48,10 @@ export class AuthServiceService implements HttpInterceptor {
           });
         }
 
-          if (error.status === 503) {
+        if (error.status === 503) {
           localStorage.clear();
           this.router.navigate(['/login'], {
-            queryParams: { errorMessage: error.error.result.message}
+            queryParams: { errorMessage: error.error.result.message }
           });
         }
         return throwError(error);

@@ -33,6 +33,12 @@ import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
 import { ForgetPasswordComponent } from './login/forget-password.component';
 import { CommandmodelComponent } from './commandmodel/commandmodel.component';
 import { CommandmodellistComponent } from './commandmodel/commandmodellist.component';
+import { InsuracepolicyComponent } from './insuracepolicy/insuracepolicy.component';
+import { InsuracepolicylistComponent } from './insuracepolicy/insuracepolicylist.component';
+import { StartupComponent } from './startup/startup.component';
+import { StartuplistComponent } from './startup/startuplist.component';
+import { CricketlistComponent } from './cricket/cricketlist.component';
+import { CricketComponent } from './cricket/cricket.component';
 
 
 
@@ -206,6 +212,47 @@ const routes: Routes = [
   {
     path: 'CommandModel/:id',
     component: CommandmodelComponent
+  },
+
+  {
+    path: 'Insuracepolicy',
+    component: InsuracepolicyComponent
+  },
+  {
+    path: 'Insuracepolicylist',
+    component: InsuracepolicylistComponent
+  },
+  {
+    path: 'Insuracepolicy/:id',
+    component: InsuracepolicyComponent
+  },
+
+
+  {
+    path: 'startup',
+    component: StartupComponent
+  },
+  {
+    path: 'startuplist',
+    component: StartuplistComponent
+  },
+  {
+    path: 'startup/:id',
+    component: InsuracepolicyComponent
+  },
+
+
+  {
+    path: 'cricket',
+    component: CricketComponent
+  },
+  {
+    path: 'cricketlist',
+    component: CricketlistComponent
+  },
+  {
+    path: 'cricket/:id',
+    component: CricketComponent
   },
 
   {

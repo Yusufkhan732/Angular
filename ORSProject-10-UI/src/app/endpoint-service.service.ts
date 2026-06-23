@@ -24,4 +24,7 @@ export class EndpointServiceService {
   public JASPER = this.SERVER_URL + "/Jasper";
   public PROMOTION = this.SERVER_URL + "/Promotion";
   public COMMANDMODEL = this.SERVER_URL + "/CommandModel";
+  public INCURANCEPOLICY = this.SERVER_URL + "/InsurancePolicy";
+  public STARTUP = this.SERVER_URL + "/Startup";
+  public CRICKET = this.SERVER_URL + "/Cricket";
 }

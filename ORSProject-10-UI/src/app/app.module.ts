@@ -48,6 +48,12 @@ import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
 import { ForgetPasswordComponent } from './login/forget-password.component';
 import { CommandmodelComponent } from './commandmodel/commandmodel.component';
 import { CommandmodellistComponent } from './commandmodel/commandmodellist.component';
+import { InsuracepolicyComponent } from './insuracepolicy/insuracepolicy.component';
+import { InsuracepolicylistComponent } from './insuracepolicy/insuracepolicylist.component';
+import { StartupComponent } from './startup/startup.component';
+import { StartuplistComponent } from './startup/startuplist.component';
+import { CricketComponent } from './cricket/cricket.component';
+import { CricketlistComponent } from './cricket/cricketlist.component';
 
 
 
@@ -92,6 +98,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     JasperComponent,
     CommandmodelComponent,
     CommandmodellistComponent,
+    InsuracepolicyComponent,
+    InsuracepolicylistComponent,
+    StartupComponent,
+    StartuplistComponent,
+    CricketComponent,
+    CricketlistComponent,
 
 
   ],
