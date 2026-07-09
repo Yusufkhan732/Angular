@@ -39,6 +39,12 @@ import { StartupComponent } from './startup/startup.component';
 import { StartuplistComponent } from './startup/startuplist.component';
 import { CricketlistComponent } from './cricket/cricketlist.component';
 import { CricketComponent } from './cricket/cricket.component';
+import { HotelComponent } from './hotel/hotel.component';
+import { HotellistComponent } from './hotel/hotellist.component';
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerlistComponent } from './customer/customerlist.component';
+import { WeatherComponent } from './weather/weather.component';
+import { WeatherlistComponent } from './weather/weatherlist.component';
 
 
 
@@ -254,6 +260,49 @@ const routes: Routes = [
     path: 'cricket/:id',
     component: CricketComponent
   },
+
+
+  {
+    path: 'hotel',
+    component: HotelComponent
+  },
+  {
+    path: 'hotellist',
+    component: HotellistComponent
+  },
+  {
+    path: 'hotel/:id',
+    component: HotelComponent
+  },
+
+
+  {
+    path: 'customer',
+    component: CustomerComponent
+  },
+  {
+    path: 'customerlist',
+    component: CustomerlistComponent
+  },
+  {
+    path: 'customer/:id',
+    component: CustomerComponent
+  },
+
+
+  {
+    path: 'weather',
+    component: WeatherComponent
+  },
+  {
+    path: 'weatherlist',
+    component: WeatherlistComponent
+  },
+  {
+    path: 'weather/:id',
+    component: WeatherComponent
+  },
+
 
   {
     path: 'changepassword',

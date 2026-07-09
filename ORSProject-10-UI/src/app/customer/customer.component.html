@@ -1,0 +1,191 @@
+<br><br><br>
+
+<style>
+    .grad {
+        background-image: linear-gradient(to bottom right,
+                rgb(32, 168, 168),
+                rgb(219, 231, 237));
+        background-repeat: no-repeat;
+        background-size: 100%;
+        padding-bottom: 25px;
+    }
+</style>
+
+<div class="row" style="padding-top: 3%; padding-bottom:15%;
+  background: url(assets/files/wall.jpg) no-repeat center center;
+  background-attachment: fixed;
+  background-size: cover; width:auto; height:auto;">
+
+    <div class="col-sm-4"></div>
+
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body shadow-lg grad">
+
+                <form>
+
+                    <h2 *ngIf="!form.data.id" class="text-primary font-weight-bold" style="text-align:center;">
+                        Add Customer
+                    </h2>
+
+                    <h2 *ngIf="form.data.id > 0" class="text-primary font-weight-bold" style="text-align:center;">
+                        Update Customer
+                    </h2>
+
+                    <div *ngIf="form.error && form.message != null" class="alert alert-danger alert-dismissible">
+
+                        <button type="button" class="close" data-dismiss="alert">
+                            &times;
+                        </button>
+
+                        {{form.message}}
+                    </div>
+
+                    <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+
+                        <button type="button" class="close" data-dismiss="alert">
+                            &times;
+                        </button>
+
+                        {{form.message}}
+                    </div>
+
+                    <!-- Player Name -->
+
+                    <div style="padding-top:3%">
+                        <span class="pt-2">
+                            <b>ChatSupport </b>
+                            <span class="required-field"></span>
+                        </span>
+
+                        <div class="col-sm-12">
+                            <div class="input-group">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-user grey-text"></i>
+                                    </div>
+                                </div>
+
+                                <input type="text" name="chatSupport" [(ngModel)]="form.data.chatSupport"
+                                    class="form-control" placeholder="Enter chatSupport ">
+                            </div>
+                        </div>
+
+                        <span style="color: red;">
+                            {{form.inputerror.chatSupport}}
+                        </span>
+                    </div>
+
+                    <!-- Team -->
+
+                    <div style="padding-top:3%">
+                        <span class="pt-2">
+                            <b>CallSupport</b>
+                            <span class="required-field"></span>
+                        </span>
+
+                        <div class="col-sm-12">
+                            <div class="input-group">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-users grey-text"></i>
+                                    </div>
+                                </div>
+
+                                <input type="text" name="callSupport" [(ngModel)]="form.data.callSupport"
+                                    class="form-control" placeholder="Enter callSupport ">
+                            </div>
+                        </div>
+
+                        <span style="color: red;">
+                            {{form.inputerror.callSupport}}
+                        </span>
+                    </div>
+
+                    <!-- Role -->
+
+                    <div style="padding-top:3%">
+                        <span class="pt-2">
+                            <b>RaiseComplaint</b>
+                            <span class="required-field"></span>
+                        </span>
+
+                        <div class="col-sm-12">
+                            <div class="input-group">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-trophy grey-text"></i>
+                                    </div>
+                                </div>
+
+                                <input type="text" name="raiseComplaint" [(ngModel)]="form.data.raiseComplaint"
+                                    class="form-control" placeholder="Enter raiseComplaint">
+                            </div>
+                        </div>
+
+                        <span style="color: red;">
+                            {{form.inputerror.raiseComplaint}}
+                        </span>
+                    </div>
+
+                    <!-- Runs -->
+
+                    <div style="padding-top:3%">
+                        <span class="pt-2">
+                            <b>Faq</b>
+                            <span class="required-field"></span>
+                        </span>
+
+                        <div class="col-sm-12">
+                            <div class="input-group">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-bar-chart grey-text"></i>
+                                    </div>
+                                </div>
+
+                                <input type="text" name="faq" [(ngModel)]="form.data.faq" class="form-control"
+                                    placeholder="Enter faq">
+                            </div>
+                        </div>
+
+                        <span style="color: red;">
+                            {{form.inputerror.faq}}
+                        </span>
+                    </div>
+
+                    <!-- Buttons -->
+
+                    <div class="row pt-4 justify-content-center">
+
+                        <div class="col-auto">
+
+                            <button *ngIf="!form.data.id" (click)="submit()" class="btn btn-success mr-3">
+                                Save
+                            </button>
+
+                            <button *ngIf="form.data.id > 0" (click)="submit()" class="btn btn-success mr-3">
+                                Update
+                            </button>
+
+                            <button (click)="forward('/customerlist')" type="button" class="btn btn-warning">
+                                List
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4"></div>
+
+</div>

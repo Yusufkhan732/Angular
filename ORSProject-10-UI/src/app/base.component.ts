@@ -53,11 +53,10 @@ export class BaseCtl implements OnInit {
         var _self = this;
         _self.initApi(endpoint);
 
-        this.route.queryParams.subscribe((parmass : any) =>{
-
-            this.form.message = parmass['errorMessage'];
+       
+        this.route.queryParams.subscribe((params : any) =>{
+            this.form.message = params['errorMessage'];
             this.form.error = true;
-
         })
 
         serviceLocator.getPathVariable(route, function (params: any) {

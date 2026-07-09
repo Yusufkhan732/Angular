@@ -9,10 +9,27 @@
     "FirstName": "पहला नाम",
     "LastName": "अंतिम नाम",
     "LoginId": "लॉगिन आईडी",
-    "Password": "पासवर्ड",
     "DateOfBirth": "जन्म तिथि",
     "Gender": "लिंग",
     "Mobile": "मोबाइल",
+    "alertCode": "अलर्ट कोड",
+    "cityName": "शहर का नाम",
+    "temperature": "तापमान",
+    "sunny": "धूप",
+    "cloudy": "बादल",
+    "rainy": "बारिश",
+    "storm": "तूफान",
+    "enterAlertCode": "अलर्ट कोड दर्ज करें",
+    "enterCityName": "शहर का नाम दर्ज करें",
+    "enterTemperature": "तापमान दर्ज करें",
+    "status": "स्थिति",
+    "addWeather": "मौसम जोड़ें",
+    "updateWeather": "मौसम अपडेट करें",
+    "weatherList": "मौसम सूची",
+    "weather": "मौसम",
+     "searchAlertCode": "अलर्ट कोड खोजें",
+    "searchCityName": "शहर का नाम खोजें",
+     "back": "वापस जाएं",
     "Buttons": {
         "SignUp": "साइन अप",
         "Reset": "रीसेट",
@@ -122,6 +139,5 @@
         "GetMarksheet": "अंकसूची प्राप्त करें",
         "MarksheetMeritList": "मेधावी अंकसूची",
         "College": "महाविद्यालय"
-        
     }
 }

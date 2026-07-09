@@ -1,0 +1,196 @@
+<br><br><br>
+
+<style>
+    .grad {
+        background-image: linear-gradient(to bottom right,
+                rgb(32, 168, 168),
+                rgb(219, 231, 237));
+        background-repeat: no-repeat;
+        background-size: 100%;
+        padding-bottom: 25px;
+    }
+</style>
+
+<div class="row" style="padding-top: 3%; padding-bottom:15%;
+  background: url(assets/files/wall.jpg) no-repeat center center;
+  background-attachment: fixed;
+  background-size: cover; width:auto; height:auto;">
+
+    <div class="col-sm-4"></div>
+
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body shadow-lg grad">
+
+                <form>
+
+                    <h2 *ngIf="!form.data.id" class="text-primary font-weight-bold text-center">
+                        {{'addWeather' | translate}}
+                    </h2>
+
+                    <h2 *ngIf="form.data.id > 0" class="text-primary font-weight-bold text-center">
+                         {{'updateWeather' | translate}}
+                    </h2>
+
+                    <div *ngIf="form.error && form.message != null" class="alert alert-danger alert-dismissible">
+
+                        <button type="button" class="close" data-dismiss="alert">
+                            &times;
+                        </button>
+
+                        {{form.message}}
+                    </div>
+
+                    <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+
+                        <button type="button" class="close" data-dismiss="alert">
+                            &times;
+                        </button>
+
+                        {{form.message}}
+                    </div>
+
+                    <!-- Alert Code -->
+
+                    <div style="padding-top:3%">
+                        <span class="pt-2">
+                            <b>{{'alertCode' | translate}}</b>
+                            <span class="required-field"></span>
+                        </span>
+
+                        <div class="col-sm-12">
+                            <div class="input-group">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-exclamation-triangle"></i>
+                                    </div>
+                                </div>
+
+                                <input type="text" name="alertCode" [(ngModel)]="form.data.alertCode"
+                                    class="form-control" placeholder="{{'enterAlertCode' | translate}}">
+                            </div>
+                        </div>
+
+                        <span style="color:red">
+                            {{form.inputerror.alertCode}}
+                        </span>
+                    </div>
+
+                    <!-- City Name -->
+
+                    <div style="padding-top:3%">
+                        <span class="pt-2">
+                            <b>{{'cityName' | translate}}</b>
+                            <span class="required-field"></span>
+                        </span>
+
+                        <div class="col-sm-12">
+                            <div class="input-group">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                </div>
+
+                                <input type="text" name="cityName" [(ngModel)]="form.data.cityName" class="form-control"
+                                    placeholder="{{'enterCityName' | translate}}">
+                            </div>
+                        </div>
+
+                        <span style="color:red">
+                            {{form.inputerror.cityName}}
+                        </span>
+                    </div>
+
+                    <!-- Temperature -->
+
+                    <div style="padding-top:3%">
+                        <span class="pt-2">
+                            <b>{{'temperature' | translate}}</b>
+                            <span class="required-field"></span>
+                        </span>
+
+                        <div class="col-sm-12">
+                            <div class="input-group">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-thermometer-half"></i>
+                                    </div>
+                                </div>
+
+                                <input type="number" name="temperature" [(ngModel)]="form.data.temperature"
+                                    class="form-control" placeholder="{{'enterTemperature' | translate}}">
+                            </div>
+                        </div>
+
+                        <span style="color:red">
+                            {{form.inputerror.temperature}}
+                        </span>
+                    </div>
+
+                    <!-- Status -->
+
+                    <div style="padding-top:3%">
+                        <span class="pt-2">
+                            <b>{{'status' | translate}}</b>
+                            <span class="required-field"></span>
+                        </span>
+
+                        <div class="col-sm-12">
+                            <div class="input-group">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-cloud"></i>
+                                    </div>
+                                </div>
+
+                                <select class="form-control" name="status" [(ngModel)]="form.data.status">
+                                    <option value="undefined">{{'GenderOptions.Select' | translate}}</option>
+                                    <option value="Sunny">{{'sunny' | translate}}</option>
+                                    <option value="Cloudy">{{'cloudy' | translate}}</option>
+                                    <option value="Rainy">{{'rainy' | translate}}</option>
+                                    <option value="Storm">{{'storm' | translate}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <span style="color:red">
+                            {{form.inputerror.status}}
+                        </span>
+                    </div>
+
+                    <!-- Buttons -->
+
+                    <div class="row pt-4 justify-content-center">
+
+                        <div class="col-auto">
+
+                            <button *ngIf="!form.data.id" (click)="submit()" class="btn btn-success mr-3">
+                               {{ 'UserForm.Buttons.Save' | translate }}
+                            </button>
+
+                            <button *ngIf="form.data.id > 0" (click)="submit()" class="btn btn-success mr-3">
+                                 {{ 'UserForm.Buttons.Update' | translate }}
+                            </button>
+
+                            <button (click)="forward('/weatherlist')" type="button" class="btn btn-warning">
+                               {{ 'UserForm.Buttons.List' | translate }}
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4"></div>
+
+</div>

@@ -27,4 +27,7 @@ export class EndpointServiceService {
   public INCURANCEPOLICY = this.SERVER_URL + "/InsurancePolicy";
   public STARTUP = this.SERVER_URL + "/Startup";
   public CRICKET = this.SERVER_URL + "/Cricket";
+  public HOTEL = this.SERVER_URL + "/Hotel";
+  public CUSTOMER = this.SERVER_URL + "/Customer";
+  public WEATHER = this.SERVER_URL + "/Weather";
 }

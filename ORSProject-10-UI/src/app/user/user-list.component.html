@@ -71,7 +71,7 @@
             <tr *ngFor="let m of form.list; let i = index">
               <td>
                 <input type="checkbox" #checkboxes (change)="checklistUpdate()" [id]="m.id"
-                  [disabled]="m.roleName=='Admin'" [value]="isMasterSel" />
+                 [value]="isMasterSel" />
               </td>
               <td>{{(form.pageNo*5)+i+1}}</td>
               <td>
@@ -89,7 +89,7 @@
               <td>{{ m.gender }}</td>
               <td>{{ m.dob | date:'dd-MM-yyyy'}}</td>
               <td>
-                <button class="fa fa-edit text-primary" [disabled]="m.roleName=='Admin'"
+                <button class="fa fa-edit text-primary" 
                   (click)="forward('/user/' + m.id)" style="cursor:pointer; border:none; background:none;"></button>
               </td>
             </tr>

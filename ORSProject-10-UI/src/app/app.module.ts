@@ -54,6 +54,12 @@ import { StartupComponent } from './startup/startup.component';
 import { StartuplistComponent } from './startup/startuplist.component';
 import { CricketComponent } from './cricket/cricket.component';
 import { CricketlistComponent } from './cricket/cricketlist.component';
+import { HotelComponent } from './hotel/hotel.component';
+import { HotellistComponent } from './hotel/hotellist.component';
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerlistComponent } from './customer/customerlist.component';
+import { WeatherComponent } from './weather/weather.component';
+import { WeatherlistComponent } from './weather/weatherlist.component';
 
 
 
@@ -104,6 +110,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     StartuplistComponent,
     CricketComponent,
     CricketlistComponent,
+    HotelComponent,
+    HotellistComponent,
+    CustomerComponent,
+    CustomerlistComponent,
+    WeatherComponent,
+    WeatherlistComponent,
 
 
   ],

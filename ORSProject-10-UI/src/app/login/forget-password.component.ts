@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
- 
+
 })
 export class ForgetPasswordComponent {
 

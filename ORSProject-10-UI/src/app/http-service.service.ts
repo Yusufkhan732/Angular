@@ -7,42 +7,18 @@ import { Router } from '@angular/router';
 })
 export class HttpServiceService {
 
+
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   post(endpoint: any, bean: any, callback: any) {
     return this.httpClient.post(endpoint, bean, { withCredentials: true }).subscribe((data) => {
       callback(data);
-    }, (error) => {
-      this.handleError(error);
     });
   }
 
-  get(endpoint: any, callback: any, responseType: any = 'json') {
-    this.httpClient.get(endpoint, { withCredentials: true, responseType })
-      .subscribe((data) =>{ callback(data);
-   }, (error) => { this.handleError(error)
-   });
+  get(endpoint: any, callback: any) {
+    return this.httpClient.get(endpoint, { withCredentials: true }).subscribe((data) => {
+      callback(data);
+    });
   }
-
-  private handleError(error: any): void {
-    console.error('Request failed', error);
-    if (error.status === 401) {
-      localStorage.clear();
-      this.router.navigate(['/login'], {
-        queryParams: { errorMessage: error.error.error }
-      });
-    }
-  }
-
-  // private handleError1(error : any) : void{
-  // if(error.status === 503){
-  //   this.router.navigate(['/login'],{
-
-  //     queryParams : {errorMessage : error.error.error}
-  //   });
-      
-  // }
-// }
-
-
 }

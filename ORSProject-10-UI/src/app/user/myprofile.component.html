@@ -11,11 +11,12 @@ background-size: cover;width:auto; height: auto;">
         <form name="myProfile">
           <h2 align="center" class="text-primary font-weight-bold">My Profile</h2>
 
-          <div *ngIf="form.error" class="alert alert-danger alert-dismissible">
+          <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             {{form.message}}
           </div>
-          <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+
+          <div *ngIf="form.error && form.message != null" class="alert alert-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             {{form.message}}
           </div>
@@ -59,7 +60,7 @@ background-size: cover;width:auto; height: auto;">
                   placeholder="Enter Login Id">
               </div>
             </div>
-            <span class="alertRedColor">{{form.inputerror.state}}</span>
+            <span class="alertRedColor">{{form.inputerror.loginId}}</span>
           </div>
 
           <div style="padding-top:3%">
@@ -135,15 +136,26 @@ background-size: cover;width:auto; height: auto;">
             </div>
           </div>
 
-          <div style="padding-top:3%">
-            <span class="pt-2"><b>Image</b></span>
+          <div class="form-group">
+            <span class="pt-2"><b>Image</b>
+              <!-- <option [ngValue]="" value="undefined"></option> -->
+              <span *ngIf="!form.data.imageId" class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div *ngIf="form.data.imageId">
+                <img src="http://localhost:8080/User/profilePic/{{form.data.id}}" height="55px" width="80px">
+              </div>
+              <div *ngIf="!form.data.imageId">
+                <img src="../../assets/files/default.jpg" height="55px" width="80px">
+              </div>
+            </div>
             <div class="col-sm-12">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i></div>
+                  <div class="input-group-text"><i class="fa fa-picture-o grey-text"></i> </div>
                 </div>
                 <input type="file" id="customFile" name="imageId" (change)="onFileSelect($event)" accept="image/*">
-                <span class="alertRedColor">{{form.inputerror.image}}</span>
+
+                <span class="alertRedColor"> {{form.inputerror.image}} </span>
               </div>
             </div>
           </div>

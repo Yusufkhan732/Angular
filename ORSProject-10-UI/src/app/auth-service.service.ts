@@ -15,50 +15,50 @@ export class AuthServiceService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     if (localStorage.getItem('token')) {
-
-      this.token = localStorage.getItem('token');
-
+      this.token = localStorage.getItem('token')
       req = req.clone({
         setHeaders: {
-          "withCredntails": "true",
-          "name": "yusuf",
+          "withCredentials": "true",
+          "name": "Yusuf",
           Authorization: this.token
         }
       });
     }
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
+        if (error.status === 0) {
+          this.router.navigate([this.router.url], {
+            queryParams: { errorMessage: "Server not reachable. Please start backend" }
+          });
+
+        }
         if (error.status === 401) {
           localStorage.clear();
           this.router.navigate(['/login'], {
-            queryParams: { errorMessage: error.error },
-          });
-        }
-
-        if (error.status === 0) {
-          this.router.navigate([this.router.url], {
-            queryParams: { errorMessage: 'server not rechable Please start Backend..!!' },
+            queryParams: { errorMessage: error.error.result.message },
           });
         }
 
         if (error.status === 403) {
           localStorage.clear();
           this.router.navigate(['/login'], {
-            queryParams: { errorMessage: 'Token is expired... plz login again..!!' },
+            queryParams: { errorMessage: error.error.message },
           });
         }
 
         if (error.status === 503) {
-          localStorage.clear();
-          this.router.navigate(['/login'], {
+          this.router.navigate([this.router.url], {
+            queryParams: { errorMessage: error.error.result.message }
+          });
+        }
+
+        if (error.status === 500) {
+          this.router.navigate([this.router.url], {
             queryParams: { errorMessage: error.error.result.message }
           });
         }
         return throwError(error);
       })
     );
-
-
   }
-
 }
