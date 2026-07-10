@@ -282,8 +282,12 @@
         <li class="nav-item dropdown">
 
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown">
-            <i class="fa fa-user-circle"></i>
+
+            <img [src]="'http://localhost:8080/User/profilePic/' + form.data.userId" width="35" height="35"
+              class="rounded-circle" style="object-fit: cover; object-fit:cover; margin-right:8px;">
+
             {{'Greetings.HiUser' | translate:{name: form.data.fname, role: form.data.role} }}
+
           </a>
 
 

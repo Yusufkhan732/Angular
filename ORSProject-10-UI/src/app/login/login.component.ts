@@ -59,6 +59,7 @@ export class LoginComponent {
         localStorage.setItem("fname", res.result.fname);
         localStorage.setItem("lname", res.result.lname);
         localStorage.setItem("userId", res.result.data.id);
+        localStorage.setItem("imageId", res.result.data.imageId);
         localStorage.setItem('token', 'Bearer ' + res.result.token);
 
 

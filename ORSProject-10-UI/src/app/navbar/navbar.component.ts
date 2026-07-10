@@ -14,31 +14,32 @@ import { HttpClient } from '@angular/common/http'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-    endpoint = "http://localhost:8080/Auth/";
+  endpoint = "http://localhost:8080/Auth/";
 
   form: any = {
     data: {}
   }
 
-  constructor(private translate: TranslateService,private httpservice:HttpServiceService, private router: Router,private servicelocator: ServiceLocatorService){
+  constructor(private translate: TranslateService, private httpservice: HttpServiceService, private router: Router, private servicelocator: ServiceLocatorService) {
 
     const locale = localStorage.getItem("locale") || 'en';
     translate.setDefaultLang(locale);
     translate.use(locale);
   }
 
-   changeLocale(locale: string) {
+  changeLocale(locale: string) {
     localStorage.setItem("locale", locale);
     this.translate.use(locale);
   }
 
-  isLogin(){
-    let check=localStorage.getItem('fname');
-    if(check !=null&& check !=null){
-    this.form.data.fname=localStorage.getItem('fname');
-    this.form.data.role=localStorage.getItem('role');
-    return true;
-    }else{
+  isLogin() {
+    let check = localStorage.getItem('fname');
+    if (check != null && check != null) {
+      this.form.data.fname = localStorage.getItem('fname');
+      this.form.data.role = localStorage.getItem('role');
+      this.form.data.userId = localStorage.getItem("userId"); // <-- ye add karo
+      return true;
+    } else {
       return false;
     }
   }
@@ -51,15 +52,15 @@ export class NavbarComponent {
     });
   }
 
-    forward() {
+  forward() {
     this.form.data.userId = localStorage.getItem("userId");
     this.servicelocator.forward("/myprofile/" + this.form.data.userId);
   }
 
 
-  
- goToLink() {
-     window.open('assets/doc/index.html','_blank');
-  }  
-  
+
+  goToLink() {
+    window.open('assets/doc/index.html', '_blank');
+  }
+
 }
